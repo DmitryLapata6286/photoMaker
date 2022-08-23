@@ -8,22 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		FDF84BB728B539BC00A1F160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BB628B539BC00A1F160 /* AppDelegate.swift */; };
-		FDF84BB928B539BC00A1F160 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BB828B539BC00A1F160 /* SceneDelegate.swift */; };
 		FDF84BBB28B539BC00A1F160 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BBA28B539BC00A1F160 /* ViewController.swift */; };
-		FDF84BBE28B539BC00A1F160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF84BBC28B539BC00A1F160 /* Main.storyboard */; };
 		FDF84BC028B539C000A1F160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDF84BBF28B539C000A1F160 /* Assets.xcassets */; };
 		FDF84BC328B539C000A1F160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF84BC128B539C000A1F160 /* LaunchScreen.storyboard */; };
+		FDF84BCD28B5429A00A1F160 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BCC28B5429A00A1F160 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FDF84BB328B539BC00A1F160 /* PhotoMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF84BB628B539BC00A1F160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FDF84BB828B539BC00A1F160 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FDF84BBA28B539BC00A1F160 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FDF84BBD28B539BC00A1F160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDF84BBF28B539C000A1F160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDF84BC228B539C000A1F160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDF84BC428B539C000A1F160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDF84BCC28B5429A00A1F160 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +54,22 @@
 		FDF84BB528B539BC00A1F160 /* PhotoMaker */ = {
 			isa = PBXGroup;
 			children = (
+				FDF84BCA28B5426600A1F160 /* API */,
 				FDF84BB628B539BC00A1F160 /* AppDelegate.swift */,
-				FDF84BB828B539BC00A1F160 /* SceneDelegate.swift */,
 				FDF84BBA28B539BC00A1F160 /* ViewController.swift */,
-				FDF84BBC28B539BC00A1F160 /* Main.storyboard */,
 				FDF84BBF28B539C000A1F160 /* Assets.xcassets */,
 				FDF84BC128B539C000A1F160 /* LaunchScreen.storyboard */,
 				FDF84BC428B539C000A1F160 /* Info.plist */,
 			);
 			path = PhotoMaker;
+			sourceTree = "<group>";
+		};
+		FDF84BCA28B5426600A1F160 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FDF84BCC28B5429A00A1F160 /* Models.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +132,6 @@
 			files = (
 				FDF84BC328B539C000A1F160 /* LaunchScreen.storyboard in Resources */,
 				FDF84BC028B539C000A1F160 /* Assets.xcassets in Resources */,
-				FDF84BBE28B539BC00A1F160 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +142,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF84BCD28B5429A00A1F160 /* Models.swift in Sources */,
 				FDF84BBB28B539BC00A1F160 /* ViewController.swift in Sources */,
 				FDF84BB728B539BC00A1F160 /* AppDelegate.swift in Sources */,
-				FDF84BB928B539BC00A1F160 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FDF84BBC28B539BC00A1F160 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FDF84BBD28B539BC00A1F160 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FDF84BC128B539C000A1F160 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +288,7 @@
 				INFOPLIST_FILE = PhotoMaker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +316,7 @@
 				INFOPLIST_FILE = PhotoMaker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
