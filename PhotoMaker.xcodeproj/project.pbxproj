@@ -12,9 +12,8 @@
 		FDF84BC028B539C000A1F160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDF84BBF28B539C000A1F160 /* Assets.xcassets */; };
 		FDF84BC328B539C000A1F160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF84BC128B539C000A1F160 /* LaunchScreen.storyboard */; };
 		FDF84BCD28B5429A00A1F160 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BCC28B5429A00A1F160 /* Models.swift */; };
-		FDF84BD028B5469200A1F160 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BCF28B5469200A1F160 /* APICaller.swift */; };
-		FDF84BD328B5476500A1F160 /* URLSession+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BD228B5476500A1F160 /* URLSession+Ex.swift */; };
 		FDF84BD728B5494C00A1F160 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BD628B5494C00A1F160 /* CellView.swift */; };
+		FDF84BDA28B66E0B00A1F160 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF84BD928B66E0B00A1F160 /* AppList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +24,8 @@
 		FDF84BC228B539C000A1F160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDF84BC428B539C000A1F160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDF84BCC28B5429A00A1F160 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		FDF84BCF28B5469200A1F160 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
-		FDF84BD228B5476500A1F160 /* URLSession+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Ex.swift"; sourceTree = "<group>"; };
 		FDF84BD628B5494C00A1F160 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		FDF84BD928B66E0B00A1F160 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +58,7 @@
 		FDF84BB528B539BC00A1F160 /* PhotoMaker */ = {
 			isa = PBXGroup;
 			children = (
+				FDF84BD828B66DCE00A1F160 /* Models */,
 				FDF84BD528B5491200A1F160 /* ViewControllers */,
 				FDF84BD428B5490800A1F160 /* Views */,
 				FDF84BD128B5474A00A1F160 /* Extensions */,
@@ -76,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				FDF84BCC28B5429A00A1F160 /* Models.swift */,
-				FDF84BCF28B5469200A1F160 /* APICaller.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -84,7 +82,6 @@
 		FDF84BD128B5474A00A1F160 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FDF84BD228B5476500A1F160 /* URLSession+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -103,6 +100,14 @@
 				FDF84BBA28B539BC00A1F160 /* ViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FDF84BD828B66DCE00A1F160 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FDF84BD928B66E0B00A1F160 /* AppList.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +182,9 @@
 			files = (
 				FDF84BCD28B5429A00A1F160 /* Models.swift in Sources */,
 				FDF84BBB28B539BC00A1F160 /* ViewController.swift in Sources */,
+				FDF84BDA28B66E0B00A1F160 /* AppList.swift in Sources */,
 				FDF84BD728B5494C00A1F160 /* CellView.swift in Sources */,
 				FDF84BB728B539BC00A1F160 /* AppDelegate.swift in Sources */,
-				FDF84BD328B5476500A1F160 /* URLSession+Ex.swift in Sources */,
-				FDF84BD028B5469200A1F160 /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
