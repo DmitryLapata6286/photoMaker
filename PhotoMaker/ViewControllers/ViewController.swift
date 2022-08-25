@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    
     private var tableView = UITableView()
     
     var listModel = List()
@@ -45,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellView.identifier, for: indexPath) as? CellView else { fatalError() }
         // TODO: - add data to view cell
 
-        cell.nameLabel.text = listModel.cellsData[indexPath.row].name
+        cell.nameLabel.text = listModel.cellsData?[indexPath.row].name
         return cell
     }
     
