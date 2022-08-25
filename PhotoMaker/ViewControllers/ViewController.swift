@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -27,14 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
 
         self.view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-        
+
         setTableView()
         
         listModel.dataGotClosure = { contents in
@@ -47,6 +41,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         listModel.getListData()
     }
+    
+    
+    // MARK: - Methods
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = scrollView.frame.size.height
@@ -61,21 +58,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // MARK: - Methods
     func setTableView () {
-       
         
         tableView.register(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "testID")
         
-        tableView.register(CellView.self,
-                           forCellReuseIdentifier: CellView.identifier)
+        //tableView.register(CellView.self, forCellReuseIdentifier: CellView.identifier)
+        
         tableView.separatorColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return realModel.count // cellsData.count
+        return realModel.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

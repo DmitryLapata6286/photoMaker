@@ -18,30 +18,35 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4x-7p-id4">
-                        <rect key="frame" x="10" y="5" width="300" height="119"/>
+                        <rect key="frame" x="10" y="5" width="300" height="118"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tYN-xN-ftE">
+                                <rect key="frame" x="8" y="19" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="IJ9-yi-JNv"/>
+                                    <constraint firstAttribute="width" constant="80" id="tzm-Tf-V3B"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voP-xR-1J5">
-                                <rect key="frame" x="16" y="16" width="42" height="87"/>
+                                <rect key="frame" x="104" y="19" width="42" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Kcg-Qz-Kw9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tYN-xN-ftE">
-                                <rect key="frame" x="74" y="34.5" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="IJ9-yi-JNv"/>
-                                    <constraint firstAttribute="width" constant="50" id="tzm-Tf-V3B"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="voP-xR-1J5" firstAttribute="centerY" secondItem="W4x-7p-id4" secondAttribute="centerY" id="4CQ-Rf-ynj"/>
-                            <constraint firstItem="voP-xR-1J5" firstAttribute="top" secondItem="W4x-7p-id4" secondAttribute="top" constant="16" id="XpS-4x-jBD"/>
+                            <constraint firstItem="voP-xR-1J5" firstAttribute="leading" secondItem="tYN-xN-ftE" secondAttribute="trailing" constant="16" id="AGM-py-MWR"/>
+                            <constraint firstItem="voP-xR-1J5" firstAttribute="centerY" secondItem="W4x-7p-id4" secondAttribute="centerY" id="CSG-CH-0Pb"/>
+                            <constraint firstItem="voP-xR-1J5" firstAttribute="leading" secondItem="W4x-7p-id4" secondAttribute="leading" constant="104" id="M7z-8q-0B5"/>
                             <constraint firstItem="tYN-xN-ftE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="W4x-7p-id4" secondAttribute="top" constant="16" id="e0N-z0-x60"/>
-                            <constraint firstItem="voP-xR-1J5" firstAttribute="leading" secondItem="W4x-7p-id4" secondAttribute="leading" constant="16" id="kZo-Xl-qw4"/>
-                            <constraint firstItem="tYN-xN-ftE" firstAttribute="leading" secondItem="voP-xR-1J5" secondAttribute="trailing" constant="16" id="o3s-th-RuX"/>
+                            <constraint firstItem="voP-xR-1J5" firstAttribute="top" secondItem="W4x-7p-id4" secondAttribute="top" constant="19" id="h8Q-4y-uBu"/>
                             <constraint firstItem="tYN-xN-ftE" firstAttribute="centerY" secondItem="W4x-7p-id4" secondAttribute="centerY" id="vbl-9b-8AT"/>
+                            <constraint firstItem="voP-xR-1J5" firstAttribute="bottom" secondItem="tYN-xN-ftE" secondAttribute="bottom" id="wR1-LL-Xq5"/>
+                            <constraint firstItem="voP-xR-1J5" firstAttribute="top" secondItem="tYN-xN-ftE" secondAttribute="top" id="xzg-PC-YmE"/>
                         </constraints>
                     </view>
                 </subviews>
