@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         setTableView()
         
-        listModel.dataGotClosure = { contents in
+        listModel.networkClosure = { contents in
             self.realModel.append(contentsOf: contents ?? [])
             self.neededUpdate = true
             DispatchQueue.main.async {
@@ -82,10 +82,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellView.identifier, for: indexPath) as? CellView else { fatalError() }
-        //        // TODO: - add data to view cell
-        //
-        //        cell.nameLabel.text = listModel.cellsData?[indexPath.row].name
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "testID", for: indexPath) as? TestTableViewCell else {
             return UITableViewCell()
@@ -102,10 +98,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         vc.sourceType = .camera
         present(vc, animated: true)
     }
-    
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return 100
-    //    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

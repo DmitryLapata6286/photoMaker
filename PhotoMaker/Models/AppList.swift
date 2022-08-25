@@ -13,12 +13,11 @@ class List {
     var cellsData: [Content]?
     private var responseData: ListPhotos? {
         didSet {
-            dataGotClosure?(responseData?.content)
+            networkClosure?(responseData?.content)
         }
     }
-    private var currentPage: Int = 0
     
-    var dataGotClosure: (([Content]?) -> Void)?
+    var networkClosure: (([Content]?) -> Void)?
     
     
     func getListData(page: Int = 0) {
@@ -29,44 +28,6 @@ class List {
         }
         task.resume()
     }
-    
-//    func uploadImage(paramName: String, fileName: String, image: UIImage, body: Data) {
-//        guard let url = URL(string: "\(baseUrl)api/v2/photo") else { return }
-//
-//        // generate boundary string using a unique per-app string
-//        let boundary = UUID().uuidString
-//
-//        let session = URLSession.shared
-//
-//        // Set the URLRequest to POST and to the specified URL
-//        var urlRequest = URLRequest(url: url)
-//        urlRequest.httpMethod = "POST"
-//
-//        // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
-//        // And the boundary is also set here
-//        urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-//
-////        var data = Data()
-//
-////        // Add the image data to the raw http request data
-////        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-////        data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-////        data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
-////        data.append(image.pngData()!)
-////
-////        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-////        data.append("\r\n--\(body)--\r\n".data(using: .utf8)!)
-//
-//        // Send a POST request to the URL, with the data we created earlier
-//        session.uploadTask(with: urlRequest, from: body, completionHandler: { responseData, response, error in
-//            if error == nil {
-//                let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
-//                if let json = jsonData as? [String: Any] {
-//                    print(json)
-//                }
-//            }
-//        }).resume()
-//    }
     
     func sendRequest(
         body: Data,
@@ -83,18 +44,6 @@ class List {
         )
 
         request.httpMethod = "POST"
-        
-        // Add the image data to the raw http request data
-//        var data = body
-//        
-//        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-//        data.append("Content-Disposition: form-data; name=\"photo\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-//        data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
-//        data.append(image.pngData()!)
-//        
-//        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-//        data.append("\r\n--\(body)--\r\n".data(using: .utf8)!)
-        
         
         request.httpBody = body
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
@@ -117,12 +66,6 @@ class List {
 
         task.resume()
     }
-
-    
-    
-    //    init() {
-    //        self.getListData()
-    //    }
 }
 
 protocol CellViewModelProtocol {
