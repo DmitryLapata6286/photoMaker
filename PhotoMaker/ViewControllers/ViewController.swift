@@ -105,12 +105,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
-//        guard let cell = tableView.cellForRow(at: IndexPath(row: selectedID, section: 0)) as? TestTableViewCell else {
-//            return
-//        }
-//        cell.iv.image = image
-        let coder = JSONEncoder()
-        guard let data = try? coder.encode(SendableData(typeId: selectedID, photo: image.pngData()))
+        guard let data = try? JSONEncoder().encode(SendableData(typeId: selectedID, photo: image.pngData()))
         else {
             return
         }

@@ -34,7 +34,7 @@ class List {
         then handler: @escaping (Result<Data, Error>) -> Void
     ) {
         
-        let boundary = UUID().uuidString
+        let boundary = "Boundary-\(NSUUID().uuidString)"
         guard let url = URL(string: "\(baseUrl)api/v2/photo") else { return }
         // To ensure that our request is always sent, we tell
         // the system to ignore all local cache data:
@@ -66,6 +66,7 @@ class List {
 
         task.resume()
     }
+    
 }
 
 protocol CellViewModelProtocol {
