@@ -18,7 +18,7 @@ class NetWorker {
         var urlRequest = URLRequest(url: url)
         
         urlRequest.httpMethod = "post"
-        let bodyBoundary = "--------------------------\(UUID().uuidString)"
+        let bodyBoundary = "------WebKitFormBoundary\(UUID().uuidString)"
         urlRequest.addValue("multipart/form-data; boundary=\(bodyBoundary)", forHTTPHeaderField: "Content-Type")
         
         //attachmentKey is the api parameter name for your image do ask the API developer for this
@@ -28,7 +28,7 @@ class NetWorker {
                                             typeId: String(dataModel.typeId),
                                             name: dataModel.name,
                                             boundary: bodyBoundary,
-                                            fileName: "example")
+                                            fileName: "example.png")
         
         urlRequest.addValue("\(requestData.count)", forHTTPHeaderField: "content-length")
         urlRequest.httpBody = requestData
@@ -39,7 +39,7 @@ class NetWorker {
 //                do {
 //                    print(data) // for tests
 //                }
-//                
+//
 //                //            catch let decodingError {
 //                //                debugPrint(decodingError)
 //                //            }
@@ -52,15 +52,38 @@ class NetWorker {
                            name: String,
                            boundary: String,
                            fileName: String) -> Data{
+        
+//        ------WebKitFormBoundary2RDuWuUxRugGc2iD
+//        Content-Disposition: form-data; name="name"
+//
+//        tttt
+//        ------WebKitFormBoundary2RDuWuUxRugGc2iD
+//        Content-Disposition: form-data; name="photo"; filename="Снимок экрана 2022-08-02 в 11.17.54.png"
+//        Content-Type: image/png
+//
+//
+//        ------WebKitFormBoundary2RDuWuUxRugGc2iD
+//        Content-Disposition: form-data; name="typeId"
+//
+//        45
+//        ------WebKitFormBoundary2RDuWuUxRugGc2iD--
+        
         let lineBreak = "\r\n"
         var requestBody = Data()
         
-        requestBody.append(typeId.data(using: .utf8)!)
+        
+        requestBody.append("\(lineBreak)--\(boundary + lineBreak)" .data(using: .utf8)!)
+        requestBody.append("Content-Disposition: form-data; name=\"name\"\(lineBreak)" .data(using: .utf8)!)
         requestBody.append(name.data(using: .utf8)!)
         
         requestBody.append("\(lineBreak)--\(boundary + lineBreak)" .data(using: .utf8)!)
-        requestBody.append("Content-Disposition: form-data; filename=\"\(fileName)\"\(lineBreak)" .data(using: .utf8)!)
-        requestBody.append("Content-Type: image/jpeg \(lineBreak + lineBreak)" .data(using: .utf8)!) // you can change the type accordingly if you want to
+        requestBody.append("Content-Disposition: form-data; name=\"typeId\"\(lineBreak)" .data(using: .utf8)!)
+        requestBody.append(typeId.data(using: .utf8)!)
+        
+        
+        requestBody.append("\(lineBreak)--\(boundary + lineBreak)" .data(using: .utf8)!)
+        requestBody.append("Content-Disposition: form-data; name=\"photo\"; filename=\"\(fileName)\"\(lineBreak)" .data(using: .utf8)!)
+        requestBody.append("Content-Type: image/png \(lineBreak + lineBreak)" .data(using: .utf8)!)
         requestBody.append(photo)
         requestBody.append("\(lineBreak)--\(boundary)--\(lineBreak)" .data(using: .utf8)!)
         
