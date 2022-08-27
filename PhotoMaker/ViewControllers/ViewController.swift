@@ -105,11 +105,10 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
-        guard let data = try? JSONEncoder().encode(SendableData(typeId: selectedID, photo: image.pngData()))
-        else {
-            return
-        }
-        listModel.sendRequest(body: data, then: { result in
+    
+        listModel.network.uploadDataWithImage(dataModel: SendableData(typeId: selectedID,
+                                                                      photo: image.pngData()),
+                                              then: { result in
             switch result {
             case .success(let response):
                 print(response)
@@ -121,7 +120,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 
 }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated:  true, completion: nil)
-    }
+
+func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated:  true, completion: nil)
+}
 

@@ -17,6 +17,8 @@ class List {
         }
     }
     
+    var network = NetWorker()
+    
     var networkClosure: (([Content]?) -> Void)?
     
     
@@ -29,12 +31,10 @@ class List {
         task.resume()
     }
     
-    func sendRequest(
-        body: Data,
-        then handler: @escaping (Result<Data, Error>) -> Void
-    ) {
+    func sendRequest(body: Data,
+                     then handler: @escaping (Result<Data, Error>) -> Void) {
         
-        let boundary = "Boundary-\(NSUUID().uuidString)"
+        let boundary = UUID().uuidString
         guard let url = URL(string: "\(baseUrl)api/v2/photo") else { return }
         // To ensure that our request is always sent, we tell
         // the system to ignore all local cache data:
@@ -44,8 +44,8 @@ class List {
         )
 
         request.httpMethod = "POST"
-        
         request.httpBody = body
+        
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
         let task = URLSession.shared.dataTask(
