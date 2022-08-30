@@ -52,13 +52,12 @@ class List {
             with: request,
             completionHandler: { data, response, error in
 
-                guard let data = data else {
-                    return
-                }
-
                 if let error = error {
                     handler(.failure(error))
                 } else {
+                    guard let data = data else {
+                        return
+                    }
                     handler(.success(data))
                 }
             }

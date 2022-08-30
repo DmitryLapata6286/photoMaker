@@ -71,7 +71,6 @@ class NetWorker {
         let lineBreak = "\r\n"
         var requestBody = Data()
         
-        
         requestBody.append("\(lineBreak)--\(boundary + lineBreak)" .data(using: .utf8)!)
         requestBody.append("Content-Disposition: form-data; name=\"name\"\(lineBreak)" .data(using: .utf8)!)
         requestBody.append(name.data(using: .utf8)!)
@@ -79,7 +78,6 @@ class NetWorker {
         requestBody.append("\(lineBreak)--\(boundary + lineBreak)" .data(using: .utf8)!)
         requestBody.append("Content-Disposition: form-data; name=\"typeId\"\(lineBreak)" .data(using: .utf8)!)
         requestBody.append(typeId.data(using: .utf8)!)
-        
         
         requestBody.append("\(lineBreak)--\(boundary + lineBreak)" .data(using: .utf8)!)
         requestBody.append("Content-Disposition: form-data; name=\"photo\"; filename=\"\(fileName)\"\(lineBreak)" .data(using: .utf8)!)

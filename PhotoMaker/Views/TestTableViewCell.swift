@@ -11,7 +11,7 @@ class TestTableViewCell: UITableViewCell {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var testLabel: UILabel!
-    @IBOutlet weak var iv: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,12 +22,12 @@ class TestTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         testLabel.text = nil
-        iv.image = nil
+        photoImageView.image = nil
 
     }
     func configure(model: CellViewModelProtocol) {
         testLabel.text = model.nameString
-        iv.image = model.realImage
+        photoImageView.image = model.realImage
     }
     
 }

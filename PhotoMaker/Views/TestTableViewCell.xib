@@ -60,7 +60,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backView" destination="W4x-7p-id4" id="2Mr-v2-tp6"/>
-                <outlet property="iv" destination="tYN-xN-ftE" id="1CU-7g-Fv6"/>
+                <outlet property="photoImageView" destination="tYN-xN-ftE" id="1CU-7g-Fv6"/>
                 <outlet property="testLabel" destination="voP-xR-1J5" id="Diy-0L-8EK"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="97.433035714285708"/>

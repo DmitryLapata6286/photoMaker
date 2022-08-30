@@ -48,8 +48,7 @@ class CellView: UITableViewCell{
         super.prepareForReuse()
         customImageView.image = nil
         nameLabel.text = nil
-        
-        //TODO: - reuse logic
+ 
     }
     
     override func layoutSubviews() {
